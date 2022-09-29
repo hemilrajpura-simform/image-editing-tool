@@ -1,4 +1,4 @@
-// import backgroundVideo from '../src/media/pexels-marian-croitoru-5607784.mp4'; 
+import backgroundVideo from '../src/media/pexels-marian-croitoru-5607784.mp4';
 import sampleImage from '../src/media/pexels-taryn-elliott-4112237.jpg';
 import './App.css';
 import { BiBrightness,BiImageAdd } from 'react-icons/bi'
@@ -10,9 +10,9 @@ function App() {
   const [image,setImage] = useState();
   return (
     <div className="App">
-      {/* <video id="video" autoPlay loop muted>
+      <video id="video" autoPlay loop muted>
         <source src={backgroundVideo} type="video/mp4" />
-      </video> */}
+      </video>
 
       <div className='toolMainSection'>
         <div className='toolSectionContent'>

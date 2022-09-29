@@ -13,7 +13,7 @@
 }
 .toolSectionContent {
   position: fixed;
-  background: rgba(0, 0, 0, 0.144);
+  background: rgb(255 255 255 / 6%);
   backdrop-filter: blur(10px);
   width: 70%;
   height: 70%;
@@ -46,7 +46,7 @@
 .editingToolsList svg {
   font-size: 1.5rem;
 }
-.editingToolsList li:hover svg{
+.editingToolsList li:hover svg {
   font-size: 1.6rem;
 }
 .editingToolsList li:hover {
