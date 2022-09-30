@@ -1,4 +1,4 @@
-import backgroundVideo from '../src/media/video (2).mp4';
+import backgroundVideo from '../src/media/pexels-wencheng-jiang-6635796.jpg';
 import sampleImage from '../src/media/pexels-taryn-elliott-4112237.jpg';
 import './App.css';
 import { BiBrightness, BiImageAdd } from 'react-icons/bi'
@@ -10,32 +10,48 @@ import Slider from './Components/Slider';
 
 function App() {
   const [image, setImage] = useState();
-  const [brightValue, setBrightValue] = useState();
+  const [brightValue, setBrightValue] = useState({
+    brightness: 100,
+    saturate: 100,
+  });
+  const [imageFilterStyles, setImageFilterStyles] = useState({
+    filter:"brightness('100%')",
+  })
   const [filterName, setFilterName] = useState('');
+  const [selectedFilterName, setSelectedFilterName] = useState();
+  let ImageStyle = 'filter: `${filterName}(${brightValue.brightness}%)`';
 
   const imageUploadHandler = (e) => {
     console.log(image)
     // @ts-ignore
     setImage(URL.createObjectURL(e.target.files[0]))
   }
-  let ImageStyle = { filter: `${filterName}(${brightValue}%)` };
   // let FilterBackStyle = {backgroundColor: 'rgba(255, 255, 255, 0.144)'}; 
 
   const getValue = (someV) => {
     console.log('some value', someV)
-    setBrightValue(someV)
+    setImageFilterStyles(
+      {
+        ...imageFilterStyles,
+        // filter: `${filterName}(${brightValue.brightness}%)`
+        filter:`${filterName}(${Number(someV)}%)`
+      }
+    )
+    // setImageFilterStyles({...imageFilterStyles,ImageStyle}) 
+    console.log(imageFilterStyles);
+
   }
   return (
     <div className="App">
-      <video id="video" autoPlay loop muted>
+      {/* <video id="video" autoPlay loop muted>
         <source src={backgroundVideo} type="video/mp4" />
-      </video>
-
+      </video> */}
+      <img id="video"  src={backgroundVideo} height={'100vh'} width={'100%'}/>
       <div className='toolMainSection'>
         <div className='toolSectionContent'>
           {/* <h1>LensArt</h1>  */}
           <div className='ImageContainerSection'>
-            {image ? <img src={image} alt={"Asa"} style={ImageStyle} /> :
+            {image ? <img src={image} alt={"Asa"} style={imageFilterStyles} /> :
               <div className='AddImageSectionMain'>
                 <BiImageAdd />
                 {/* <p>Choose an Image</p> */}
@@ -48,7 +64,7 @@ function App() {
               {image && filterName && <Slider getValue={getValue} FilterName={'brightness'} />}
             </div>
             <div className='ResetImageMain'>
-              <GrPowerReset onClick={() => { setImage() }} />
+              <GrPowerReset onClick={() => { setImage(null) }} />
             </div>
           </div>
           {/* <div className='FilterNameLabelMain'>
