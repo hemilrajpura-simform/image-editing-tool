@@ -16,7 +16,7 @@
   background: rgb(255 255 255 / 6%);
   backdrop-filter: blur(10px);
   width: 70%;
-  height: 70%;
+  height: 80%;
   /* border-radius: 15px; */
 }
 .toolMainSection {
@@ -51,8 +51,11 @@
 }
 .editingToolsList li:hover {
   list-style: none;
-  background-color: rgba(255, 255, 255, 0.144);
+  background-color: rgba(255, 255, 255, 0.144); 
   cursor: pointer;
+}
+.activeFilterLi{
+background-color: rgba(255, 255, 255, 0.144); 
 }
 .editingToolsSection {
   position: fixed;
@@ -83,6 +86,37 @@
   border: 1px white dashed;
   cursor: pointer;
 }
+
+.SliderSection {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.SliderSection span {
+  padding-left: 2 0px;
+}
+
+.FilterSliderMain {
+  width: 90%;
+}
+.ResetImageMain svg {
+  color: white;
+}
+.ResetImageMain {
+  width: 10%;
+  cursor: pointer;
+}
+.FilterNameLabelMain{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+.FilterNameLabelMain p{
+  padding:0;
+  margin: 5px 0;
+}
+
 
 .creatorSectionMain {
   color: white;
